@@ -1,0 +1,79 @@
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Set the background color to black */
+    color: #fff; /* Set text color to white */
+}
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.tribute-header {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.birth-death {
+    font-size: 1.2rem;
+}
+
+.video-container {
+    text-align: center;
+    margin: 20px;
+}
+
+iframe {
+    width: 80%;
+    height: 400px;
+}
+
+/* Set the color of the video play button to white */
+iframe::after {
+    content: '\25BA'; /* Unicode character for play button */
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.biography {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Use a semi-transparent white background */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #000; /* Set text color inside the biography box to black */
+}
+
+.biography h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.biography p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.footer-text {
+    font-size: 0.8rem;
+}
