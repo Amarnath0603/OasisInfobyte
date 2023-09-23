@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body 
+        {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #4d8ac7;
+        }
+        .calculator 
+        {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            background-color: #ebf5ff;
+            border-radius: 15px;
+        }
+        .display 
+        {
+            font-size: 24px;
+            height: 40px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 5px;
+            border: 1px solid #ccc;
+            background-color: #cce5ff;
+            border-radius: 10px;
+        }
+        .buttons 
+        {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 10px;
+            text-align: center;
+            
+        }
+        .button 
+        {
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 10px; 
+        }
+        .enter-button 
+        {
+            grid-column: span 2;
+            background-color: #4d8ac7;
+            color:white;
+        }
+        .type1
+        {
+            background-color: #a2d0fa;
+            color: #4d8ac7;
+        }
+        .type2
+        {
+            background-color: #cce5ff;
+            color:#163c5e;
+        }
+        .button:hover 
+        {
+            background-color: #eee;
+        }
+    </style>
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <div class="button type1" onclick="appendToDisplay('(')"> ( </div>
+            <div class="button type1" onclick="appendToDisplay(')')"> ) </div>
+            <div class="button type1" onclick="calculateResult()"> ans </div>
+            <div class="button type1" onclick="clearDisplay()"> clear </div>
+            <div class="button type1" onclick="deleteLastCharacter()"> del </div>
+
+            <div class="button type2" onclick="appendToDisplay('7')"> 7 </div>
+            <div class="button type2" onclick="appendToDisplay('8')"> 8 </div>
+            <div class="button type2" onclick="appendToDisplay('9')"> 9 </div>
+            <div class="button type1" onclick="appendToDisplay('%')"> % </div>
+            <div class="button type1" onclick="appendToDisplay('√')"> √ </div>
+
+            <div class="button type2" onclick="appendToDisplay('4')"> 4 </div>
+            <div class="button type2" onclick="appendToDisplay('5')"> 5 </div>
+            <div class="button type2" onclick="appendToDisplay('6')"> 6 </div>
+            <div class="button type1" onclick="appendToDisplay('*')"> x </div>
+            <div class="button type1" onclick="appendToDisplay('/')">  &divide </div>
+
+            <div class="button type2" onclick="appendToDisplay('1')"> 1 </div>
+            <div class="button type2" onclick="appendToDisplay('2')"> 2 </div>
+            <div class="button type2" onclick="appendToDisplay('3')"> 3 </div>
+            <div class="button type1" onclick="appendToDisplay('+')"> + </div>
+            <div class="button type1" onclick="appendToDisplay('-')"> - </div>
+
+            <div class="button type1" onclick="appendToDisplay('.')"> . </div>
+            <div class="button type2" onclick="appendToDisplay('0')"> 0 </div>
+            <div class="button type1" onclick="toggleSign()"> ± </div>
+            <div class="button enter-button" onclick="calculateResult()"> enter </div>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById("display");
+
+        function appendToDisplay(value) {
+            if (display.textContent === '0') {
+                display.textContent = '';
+            }
+            display.textContent += value;
+        }
+
+        function clearDisplay() {
+            display.textContent = '0';
+        }
+
+        function deleteLastCharacter() {
+            display.textContent = display.textContent.slice(0, -1);
+        }
+
+        function toggleSign() {
+            if (display.textContent.startsWith('-')) {
+                display.textContent = display.textContent.slice(1);
+            } else {
+                display.textContent = '-' + display.textContent;
+            }
+        }
+
+        function calculateResult() {
+            try {
+                display.textContent = eval(display.textContent);
+            } catch (error) {
+                display.textContent = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
